@@ -67,7 +67,7 @@ select,
 textarea,
 [tabindex] {
   -ms-touch-action: manipulation;
-
+  touch-action: manipulation;
 }
 
 img {
@@ -79,12 +79,12 @@ img {
   width: 100%;
 }
 
-svg:not(:root) {
-  overflow: hidden;
-}
-
 svg {
   fill: currentColor;
+}
+
+svg:not(:root) {
+  overflow: hidden;
 }
 
 svg.img-flex {
@@ -501,7 +501,7 @@ ol > li::before {
 .btn {
   cursor: pointer;
   display: inline-block;
-  padding: 0.2em 0.75em 0.3em;
+  padding: .2em .75em .3em;
   background-color: #333;
   border-radius: 8px;
   border: 3px solid #333;
@@ -542,10 +542,12 @@ ol > li::before {
 .btn-ghost:hover,
 .btn--ghost:focus,
 .btn--ghost:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: #e2e2e2;
   border-color: #000;
   color: #000;
 }
+
+/* stylelint-disable no-descending-specificity */
 
 /*
  * (c) Nicolas Gallagher and Jonathan Neal of Normalize.css || MIT License
@@ -619,17 +621,13 @@ legend {
   white-space: normal;
 }
 
-textarea {
-  overflow: auto;
-}
-
 optgroup {
   font-weight: bold;
 }
 
 ::-webkit-input-placeholder {
   color: inherit;
-  opacity: 0.54;
+  opacity: .54;
 }
 
 ::-webkit-file-upload-button {
@@ -669,7 +667,7 @@ select,
 textarea {
   -moz-appearance: none;
   -webkit-appearance: none;
-
+  appearance: none;
 }
 
 input,
@@ -690,6 +688,7 @@ label {
 
 textarea {
   min-height: 4em;
+  overflow: auto;
 }
 
 input[type="checkbox"],
@@ -729,14 +728,18 @@ input[type="checkbox"] {
 
   -moz-appearance: none;
   -webkit-appearance: none;
-
+  appearance: none;
   background-color: #fff;
 
   overflow: hidden;
 }
 
 input[type="checkbox"]:checked {
-  background: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' width='256' height='256' viewBox='0 0 256 256'><path fill='none' stroke='#000' stroke-width='60' stroke-miterlimit='10' d='M31.7 137.2L90 195.4 224.6 60.6'/></svg>") no-repeat center center / contain #e2e2e2;
+  background-color: #e2e2e2;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256' viewBox='0 0 256 256'%3E%3Cpath fill='none' stroke='#000' stroke-width='60' stroke-miterlimit='10' d='M31.7 137.2L90 195.4 224.6 60.6'/%3E%3C/svg%3E");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 input[type="radio"] {
@@ -747,6 +750,7 @@ input[type="radio"] {
 
   -moz-appearance: none;
   -webkit-appearance: none;
+  appearance: none;
   background-color: #fff;
   border-radius: 50%;
 
@@ -754,7 +758,11 @@ input[type="radio"] {
 }
 
 input[type="radio"]:checked {
-  background: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' width='256' height='256' viewBox='0 0 256 256'><circle cx='128' cy='128' r='60'/></svg>") no-repeat center center / contain #e2e2e2;
+  background-color: #e2e2e2;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256' viewBox='0 0 256 256'%3E%3Ccircle cx='128' cy='128' r='60'/%3E%3C/svg%3E");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 input[type="range"] {
@@ -864,6 +872,8 @@ input[type="range"]:active::-ms-thumb {
   background-color: #333;
 }
 
+/* stylelint-enable */
+
 a:hover, a:active {
   outline: none;
 }
@@ -893,7 +903,7 @@ a:focus, [tabindex="0"]:focus {
 
 .skip-links a,
 .skip-links button {
-  padding: 0.5em 0.75em;
+  padding: .5em .75em;
   position: absolute;
   top: -10em;
   z-index: 10000; /* To make sure they're always on top */
